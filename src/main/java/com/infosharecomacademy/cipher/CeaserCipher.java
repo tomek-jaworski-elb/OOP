@@ -7,7 +7,6 @@ public class CeaserCipher extends Cipher {
 
     private final static String ABC = "abcdefghijklmnopqrstuwxyz";
 
-
     @Override
     String encrypt(String text) {
         System.out.println(text);
@@ -17,11 +16,15 @@ public class CeaserCipher extends Cipher {
             char c = text.charAt(i);
             if (c != ' ') {
                 int position = ABC.indexOf(c);
-                position += offset;
-                if (position >= ABC.length()) {
-                    position = position - ABC.length();
+                if (position == -1) {
+                    result.append(c);
+                } else {
+                    position += offset;
+                    if (position >= ABC.length()) {
+                        position = position - ABC.length();
+                    }
+                    result.append(ABC.charAt(position));
                 }
-                result.append(String.valueOf(ABC.charAt(position)));
             } else {
                 result.append(" ");
             }
@@ -31,7 +34,26 @@ public class CeaserCipher extends Cipher {
 
     @Override
     String decrypt(String text) {
-        return null;
+        int offset = 3;
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (c != ' ') {
+                int position = ABC.indexOf(c);
+                if (position == -1) {
+                    result.append(c);
+                } else {
+                    position -= offset;
+                    if (position < 0) {
+                        position = ABC.length()+position;
+                    }
+                    result.append(ABC.charAt(position));
+                }
+            } else {
+                result.append(" ");
+            }
+        }
+        return result.toString();
     }
 
     private String getInput(String textToPrint) {
