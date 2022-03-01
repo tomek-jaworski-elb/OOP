@@ -6,6 +6,6 @@ public class App
     {
         System.out.println( "Hello World!" );
 
-        Calculation.run(5);
+        Calculation.run(Calculation.getPizzaNumber());
     }
 }

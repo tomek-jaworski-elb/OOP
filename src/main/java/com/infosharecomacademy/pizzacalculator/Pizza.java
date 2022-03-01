@@ -1,8 +1,8 @@
 package com.infosharecomacademy.pizzacalculator;
 
 public class Pizza {
-    private double radius;
-    private double price;
+    private final double radius;
+    private final double price;
     private double factor;
 
     public Pizza(double radius, double price) {
@@ -14,27 +14,21 @@ public class Pizza {
         return radius;
     }
 
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
     public double getFactor() {
-        this.factor = getPrice() / (Math.pow(getRadius(), 1) * Math.PI);
+        this.factor = getPrice() / (getRadius() * getRadius() * Math.PI);
         return factor;
     }
 
     @Override
     public String toString() {
         return "Pizza{" +
-                "radius=" + radius +
+                "radius=" + radius / 1 +
                 ", price=" + price +
                 ", factor=" + factor +
                 '}';
