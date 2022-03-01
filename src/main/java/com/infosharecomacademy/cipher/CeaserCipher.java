@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CeaserCipher extends Cipher {
 
 
-    private final static String ABC = "abcdefghijklmnopqrstuwxyz";
+    private final static String ABC_SMALL_LETTERS = "abcdefghijklmnopqrstuwxyz";
 
     @Override
     String encrypt(String text) {
@@ -15,20 +15,21 @@ public class CeaserCipher extends Cipher {
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             if (c != ' ') {
-                int position = ABC.indexOf(c);
+                int position = ABC_SMALL_LETTERS.indexOf(c);
                 if (position == -1) {
                     result.append(c);
                 } else {
                     position += offset;
-                    if (position >= ABC.length()) {
-                        position = position - ABC.length();
+                    if (position >= ABC_SMALL_LETTERS.length()) {
+                        position = position - ABC_SMALL_LETTERS.length();
                     }
-                    result.append(ABC.charAt(position));
+                    result.append(ABC_SMALL_LETTERS.charAt(position));
                 }
             } else {
                 result.append(" ");
             }
         }
+        System.out.println(result.toString());
         return result.toString();
     }
 
@@ -39,30 +40,28 @@ public class CeaserCipher extends Cipher {
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             if (c != ' ') {
-                int position = ABC.indexOf(c);
+                int position = ABC_SMALL_LETTERS.indexOf(c);
                 if (position == -1) {
                     result.append(c);
                 } else {
                     position -= offset;
                     if (position < 0) {
-                        position = ABC.length()+position;
+                        position = ABC_SMALL_LETTERS.length()+position;
                     }
-                    result.append(ABC.charAt(position));
+                    result.append(ABC_SMALL_LETTERS.charAt(position));
                 }
             } else {
                 result.append(" ");
             }
         }
+        System.out.println(result.toString());
         return result.toString();
     }
 
-    private String getInput(String textToPrint) {
+    public String getInput(String textToPrint) {
         System.out.println(textToPrint);
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
-    public void run() {
-        String inputText = getInput("enter text");
-    }
 }
