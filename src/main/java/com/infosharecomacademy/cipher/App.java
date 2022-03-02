@@ -6,11 +6,11 @@ public class App {
         System.out.println("Ceaser Cipher");
         CeaserCipher ceaserCipher = new CeaserCipher();
 
-        String txt = ceaserCipher.encrypt("abcdef abc xyz 1! g");
+        String txt = ceaserCipher.encrypt("abcdeF aBc xyz 1! g");
         FileManager fileManager = new FileManager();
         fileManager.fileSave(txt);
         txt = fileManager.fileRead();
-        System.out.println(new CeaserCipher().decrypt(txt));
+        new CeaserCipher().decrypt(txt);
 
 
         ceaserCipher.encrypt(ceaserCipher.getInput("Podaj text do zaszyfrowania: "));
