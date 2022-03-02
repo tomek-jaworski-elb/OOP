@@ -21,15 +21,14 @@ public class Pizza {
 
 
     public double getFactor() {
-        this.factor = getPrice() / (getRadius() * getRadius() * Math.PI);
-        return factor;
+        return factor = getPrice() / (getRadius() * getRadius() * Math.PI);
     }
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "radius=" + radius / 1 +
-                ", price=" + price +
+        return "Pizza {" +
+                "średnica=" + radius * 2 +
+                ", cena=" + price +
                 ", factor=" + factor +
                 '}';
     }

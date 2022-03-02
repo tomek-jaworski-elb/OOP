@@ -17,12 +17,16 @@ public class Calculation {
         double factor = 0;
 
         for (Pizza pizza : pizzaList) {
-            if (pizza.getFactor() > factor) {
+            if (factor == 0) {
+                factor = pizza.getFactor();
+            }
+            if (pizza.getFactor() < factor) {
                 factor = pizza.getFactor();
                 index = pizzaList.indexOf(pizza);
             }
             System.out.println(pizza.getFactor());
         }
+        System.out.println("Najbardziej opłacalna pizza to nr: " + (index + 1));
         System.out.println(pizzaList.get(index).toString());
     }
 
@@ -33,23 +37,34 @@ public class Calculation {
 
     private static double getRadius() {
         System.out.print("Podaj średnicę: ");
-        return getInput() * .5;
+        double in = getInput() * .5;
+        if (in > 0) {
+            return in;
+        } else {
+            throw new ArithmeticException("Dzielenie przez 0");
+        }
     }
 
     private static double getInput() {
         double result;
-        boolean isFail = true ;
+        boolean isFail = true;
         do {
             try {
                 Scanner scanner = new Scanner(System.in);
                 result = Double.parseDouble(scanner.nextLine());
+                if (result <= 0) {
+                    throw new ArithmeticException();
+                }
                 isFail = false;
             } catch (NullPointerException e) {
-                System.out.println("NullPointerException");
+                System.out.println(e.getMessage());
                 result = 0;
 
             } catch (NumberFormatException e) {
-                System.out.println("NumberFormatException");
+                System.out.println(e.getMessage());
+                result = 0;
+            } catch (ArithmeticException e ) {
+                System.out.println("Liczba musi być > 0");
                 result = 0;
             }
         } while (isFail);
