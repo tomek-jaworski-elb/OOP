@@ -7,23 +7,23 @@ public class CeaserCipher extends Cipher {
 
     private final static String ABC_SMALL_LETTERS = "abcdefghijklmnopqrstuwxyz";
     private final static String ABC_BIG_LETTERS = "ABCDEFGHIJKLMNOPQRSTUWXYZ";
+    private final static int OFFSET = 3;
 
     @Override
     String encrypt(String text) {
         System.out.println("Teskt do zaszyfrowania: " + text);
-        int offset = 3;
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             int position;
             if ((position = ABC_SMALL_LETTERS.indexOf(c)) != -1) {
-                position += offset;
+                position += OFFSET;
                 if (position >= ABC_SMALL_LETTERS.length()) {
                     position = position - ABC_SMALL_LETTERS.length();
                 }
                 result.append(ABC_SMALL_LETTERS.charAt(position));
             } else if ((position = ABC_BIG_LETTERS.indexOf(c)) != -1) {
-                position += offset;
+                position += OFFSET;
                 if (position >= ABC_BIG_LETTERS.length()) {
                     position = position - ABC_BIG_LETTERS.length();
                 }
@@ -38,20 +38,19 @@ public class CeaserCipher extends Cipher {
 
     @Override
     String decrypt(String text) {
-        int offset = 3;
         System.out.println("Teskt zaszyfrowany: " + text);
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             int position;
             if ((position = ABC_SMALL_LETTERS.indexOf(c)) != -1) {
-                position -= offset;
+                position -= OFFSET;
                 if (position < 0) {
                     position = ABC_SMALL_LETTERS.length() + position;
                 }
                 result.append(ABC_SMALL_LETTERS.charAt(position));
             } else if ((position = ABC_BIG_LETTERS.indexOf(c)) != -1) {
-                position -= offset;
+                position -= OFFSET;
                 if (position < 0) {
                     position = ABC_BIG_LETTERS.length() + position;
                 }
