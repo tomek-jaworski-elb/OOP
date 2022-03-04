@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Calculation {
 
-    public static void run(int count) {
+    public void run(int count) {
         List<Pizza> pizzaList = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
@@ -30,12 +30,12 @@ public class Calculation {
         System.out.println(pizzaList.get(index).toString());
     }
 
-    private static double getPrice() {
+    private double getPrice() {
         System.out.print("Podaj cenę: ");
         return getInput();
     }
 
-    private static double getRadius() {
+    private double getRadius() {
         System.out.print("Podaj średnicę: ");
         double in = getInput() * .5;
         if (in > 0) {
@@ -45,7 +45,7 @@ public class Calculation {
         }
     }
 
-    private static double getInput() {
+    private double getInput() {
         double result;
         boolean isFail = true;
         do {
@@ -63,7 +63,7 @@ public class Calculation {
             } catch (NumberFormatException e) {
                 System.out.println(e.getMessage());
                 result = 0;
-            } catch (ArithmeticException e ) {
+            } catch (ArithmeticException e) {
                 System.out.println("Liczba musi być > 0");
                 result = 0;
             }
@@ -71,7 +71,7 @@ public class Calculation {
         return result;
     }
 
-    public static int getPizzaNumber() {
+    public int getPizzaNumber() {
         System.out.print("Podaj ilość pizza: ");
         return (int) getInput();
     }

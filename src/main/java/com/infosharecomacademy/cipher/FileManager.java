@@ -7,12 +7,11 @@ import java.nio.file.Paths;
 
 public class FileManager {
 
-    private static final Path fileRead = Paths.get("src","main","resources","encrypted.txt");
-    private static final Path fileSave = Paths.get("src","main","resources","encrypted.txt");
+    private static final Path PATH_FILE = Paths.get("src","main","resources","encrypted.txt");
 
     public void fileSave(String textToSave) {
         try {
-            Files.writeString(fileSave,textToSave);
+            Files.writeString(PATH_FILE,textToSave);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -21,7 +20,7 @@ public class FileManager {
     public String fileRead() {
         String text = "";
         try {
-            text = Files.readString(fileRead);
+            text = Files.readString(PATH_FILE);
         } catch (IOException e) {
             e.printStackTrace();
         }

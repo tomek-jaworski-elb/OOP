@@ -10,8 +10,12 @@ public class CeaserCipher extends Cipher {
     private final static int OFFSET = 3;
 
     @Override
-    String encrypt(String text) {
-        System.out.println("Teskt do zaszyfrowania: " + text);
+    public String encrypt(String text) {
+        return doEncrypt(text);
+    }
+
+    private String doEncrypt(String text) {
+//        System.out.println("Teskt do zaszyfrowania: " + text);
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
@@ -32,13 +36,17 @@ public class CeaserCipher extends Cipher {
                 result.append(c);
             }
         }
-        System.out.println("Teskt zaszyfrowany: " + result);
+//        System.out.println("Teskt zaszyfrowany: " + result);
         return result.toString();
     }
 
     @Override
-    String decrypt(String text) {
-        System.out.println("Teskt zaszyfrowany: " + text);
+    public String decrypt(String text) {
+        return doDecrypt(text);
+    }
+
+    private String doDecrypt(String text) {
+//        System.out.println("Teskt zaszyfrowany: " + text);
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
@@ -59,7 +67,7 @@ public class CeaserCipher extends Cipher {
                 result.append(c);
             }
         }
-        System.out.println("Teskt odszyfrowany: " + result);
+//        System.out.println("Teskt odszyfrowany: " + result);
         return result.toString();
     }
 

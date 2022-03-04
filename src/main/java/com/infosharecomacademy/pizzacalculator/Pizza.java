@@ -3,11 +3,12 @@ package com.infosharecomacademy.pizzacalculator;
 public class Pizza {
     private final double radius;
     private final double price;
-    private double factor;
+    private final double factor;
 
     public Pizza(double radius, double price) {
         this.radius = radius;
         this.price = price;
+        factor = getPrice() / (getRadius() * getRadius() * Math.PI);
     }
 
     public double getRadius() {
@@ -21,7 +22,7 @@ public class Pizza {
 
 
     public double getFactor() {
-        return factor = getPrice() / (getRadius() * getRadius() * Math.PI);
+        return factor;
     }
 
     @Override
