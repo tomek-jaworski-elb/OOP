@@ -22,7 +22,7 @@ public class App {
     }
 
     private static Set<Integer> lotto(int numberCount, int range) {
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> set = new TreeSet<>(Comparator.naturalOrder());
         do {
             Random random = new Random();
             int number = random.nextInt(range) + 1;
