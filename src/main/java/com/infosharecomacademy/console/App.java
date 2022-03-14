@@ -1,13 +1,24 @@
 package com.infosharecomacademy.console;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
-        Scanner scanner= new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         String line = scanner.nextLine();
-        line = line.replace(" ","");
-        System.out.println(line);
+        line = line.replace(" ", "");
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < line.length(); i++) {
+            map.putIfAbsent(line.charAt(i), 1);
+            map.put(line.charAt(i), map.get(line.charAt(i)) + 1);
+        }
+
+        List<Map.Entry<Character, Integer>> list = new ArrayList<Map.Entry<Character, Integer>>(map.entrySet());
+
+        list.stream()
+                .sorted((o1, o2) -> o2.getValue() - o1.getValue())
+                .forEach(System.out::println);
+
     }
 }
