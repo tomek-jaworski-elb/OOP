@@ -1,17 +1,17 @@
 package com.infosharecomacademy.developer;
 
 public class Developer {
-    final Integer ID;
-    final String name;
-    final Skill skill;
+    private final Long ID;
+    private final String name;
+    private final Skill skill;
 
-    public Developer(Integer ID, String name, Skill skill) {
+    public Developer(Long ID, String name, Skill skill) {
         this.ID = ID;
         this.name = name;
         this.skill = skill;
     }
 
-    public Integer getID() {
+    public Long getID() {
         return ID;
     }
 
