@@ -22,9 +22,8 @@ public class App {
         Map<Skill, List<Long>> map = new EnumMap<>(Skill.class);
 
         for (Developer developer : developers) {
-            Skill key = developer.getSkill();
             map.putIfAbsent(developer.getSkill(), new ArrayList<>());
-            List<Long> tmp = map.get(key);
+            List<Long> tmp = map.get(developer.getSkill());
             tmp.add(developer.getId());
             map.put(developer.getSkill(), tmp);
         }
