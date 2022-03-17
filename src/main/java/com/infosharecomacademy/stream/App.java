@@ -1,8 +1,9 @@
 package com.infosharecomacademy.stream;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.List.of;
 
@@ -28,7 +29,7 @@ public class App {
                         result.add(s.charAt(i));
                     }
                     return result;
-                }).flatMap(Collection::stream)
+                }).flatMap(characters1 -> characters1.stream())
 //                .map(character -> {
 //                    Map<Character, Integer> map = new HashMap<>();
 //                    map.putIfAbsent(character, 0);
@@ -38,11 +39,11 @@ public class App {
                 .toList();
 
         System.out.println(characters);
-        Map<Character,Integer> mapa = new HashMap<>();
+        Map<Character, Integer> mapa = new HashMap<>();
 
         for (Character c : characters) {
-            mapa.putIfAbsent(c,0);
-            mapa.put(c,mapa.get(c)+1);
+            mapa.putIfAbsent(c, 0);
+            mapa.put(c, mapa.get(c) + 1);
         }
         System.out.println(mapa);
     }
