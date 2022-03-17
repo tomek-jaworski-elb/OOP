@@ -23,9 +23,7 @@ public class App {
 
         for (Developer developer : developers) {
             map.putIfAbsent(developer.getSkill(), new ArrayList<>());
-            List<Long> tmp = map.get(developer.getSkill());
-            tmp.add(developer.getId());
-            map.put(developer.getSkill(), tmp);
+            map.get(developer.getSkill()).add(developer.getId());
         }
 
         for (Map.Entry<Skill, List<Long>> entry : map.entrySet()) {
