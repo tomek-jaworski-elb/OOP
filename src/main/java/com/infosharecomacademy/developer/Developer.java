@@ -1,18 +1,18 @@
 package com.infosharecomacademy.developer;
 
 public class Developer {
-    private final Long ID;
+    private final Long id;
     private final String name;
     private final Skill skill;
 
-    public Developer(Long ID, String name, Skill skill) {
-        this.ID = ID;
+    public Developer(Long id, String name, Skill skill) {
+        this.id = id;
         this.name = name;
         this.skill = skill;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
     public String getName() {

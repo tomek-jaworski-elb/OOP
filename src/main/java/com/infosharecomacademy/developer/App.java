@@ -1,9 +1,6 @@
 package com.infosharecomacademy.developer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class App {
 
@@ -22,14 +19,11 @@ public class App {
         developers.add(new Developer(1L, "Tomek", Skill.PYTHON));
         developers.add(new Developer(55L, "Tomek", Skill.JAVA));
 
-        Map<Skill, List<Long>> map = new HashMap<>();
+        Map<Skill, List<Long>> map = new EnumMap<>(Skill.class);
 
         for (Developer developer : developers) {
-            Skill key = developer.getSkill();
             map.putIfAbsent(developer.getSkill(), new ArrayList<>());
-            List<Long> tmp = map.get(key);
-            tmp.add(developer.getID());
-            map.put(developer.getSkill(), tmp);
+            map.get(developer.getSkill()).add(developer.getId());
         }
 
         for (Map.Entry<Skill, List<Long>> entry : map.entrySet()) {
