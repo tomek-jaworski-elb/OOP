@@ -21,7 +21,6 @@ public class App {
         String s4 = "stream";
 
         List<String> strings = List.of(s1, s2, s3, s4);
-        System.out.println(strings);
 
         List<Character> characters = strings.stream().map(s -> {
                     List<Character> result = new ArrayList<>();
@@ -30,12 +29,6 @@ public class App {
                     }
                     return result;
                 }).flatMap(characters1 -> characters1.stream())
-//                .map(character -> {
-//                    Map<Character, Integer> map = new HashMap<>();
-//                    map.putIfAbsent(character, 0);
-//                    map.put(character, map.get(character) + 1);
-//                    return map;
-//                })
                 .toList();
 
         System.out.println(characters);
