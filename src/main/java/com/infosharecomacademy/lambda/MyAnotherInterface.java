@@ -1,4 +1,4 @@
-package com.infosharecomacademy.lamba;
+package com.infosharecomacademy.lambda;
 
 @FunctionalInterface
 public interface MyAnotherInterface {

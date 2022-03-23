@@ -1,4 +1,4 @@
-package com.infosharecomacademy.lamba;
+package com.infosharecomacademy.lambda;
 
 import java.util.List;
 
