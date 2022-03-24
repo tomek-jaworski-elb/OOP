@@ -11,7 +11,7 @@ import java.net.http.HttpResponse;
 
 public class Data {
 
-    private static final  Logger LOGGER = LoggerFactory.getLogger(Data.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Data.class);
 
     public String getData(URI uri) {
         HttpResponse<String> httpResponse;
@@ -33,9 +33,9 @@ public class Data {
                 body = httpResponse.body();
             }
         } catch (IOException e) {
-            LOGGER.info("Info",e);
+            LOGGER.info("Info", e);
         } catch (InterruptedException ie) {
-            LOGGER.info("Info",ie);
+            LOGGER.info("Info", ie);
         }
         return body;
     }
