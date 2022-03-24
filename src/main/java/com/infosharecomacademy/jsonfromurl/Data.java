@@ -33,7 +33,9 @@ public class Data {
                 body = httpResponse.body();
             }
         } catch (IOException e) {
+            LOGGER.info("Info",e);
         } catch (InterruptedException ie) {
+            LOGGER.info("Info",ie);
         }
         return body;
     }
